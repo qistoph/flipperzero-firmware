@@ -239,7 +239,7 @@ uint16_t mrtd_bac_decrypt_verify_sm(const uint8_t* data, size_t data_length, uin
     //printf("DO87.Tag: %X\n", do87.tag);
     //printf("DO87.Length: %ld\n", do87.length);
     //printf("DO87.Value: ");
-    //for(uint8_t i=1; i<do87.length; ++i) { printf("%02X ", do87.value[i]); }
+    //for(uint16_t i = 1; i<do87.length; ++i) printf("%02X ", do87.value[i]);
     //printf("\r\n");
 
     if(do87.tag) {
@@ -249,7 +249,7 @@ uint16_t mrtd_bac_decrypt_verify_sm(const uint8_t* data, size_t data_length, uin
             size_t enclength = do87.length - 1;
 
             mrtd_bac_decrypt(encdata, enclength, key_enc, output);
-            printf("Decrypted: "); for(uint8_t i=0; i<enclength; ++i) printf("%02X ", output[i]); printf("\r\n");
+            printf("Decrypted: "); for(uint16_t i = 0; i < enclength; ++i) printf("%02X ", output[i]); printf("\r\n");
 
             //TODO: function mrtd_bac_unpad?
             int padidx;
